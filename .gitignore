@@ -13,3 +13,7 @@ cmake-build-*/
 .idea/
 vcpkg/
 pybind11/
+# pixi environments
+.pixi
+*.egg-info
+

@@ -33,17 +33,18 @@ if (PROJECT_IS_TOP_LEVEL)
     #
     find_package(Python3 REQUIRED COMPONENTS Development Interpreter)
     find_package(OpenCV REQUIRED)
+    find_package(pybind11 REQUIRED)
 
-    # Requirement: pybind11
-    # Add pybind11 via add_subdirectory (since vcpkg's pybind11 fails on linux + python 3.12)
-    if (NOT IS_DIRECTORY(${CMAKE_CURRENT_LIST_DIR}/pybind11))
-        message(STATUS "cloning pybind11")
-        execute_process(
-            COMMAND git clone https://github.com/pybind/pybind11.git
-            WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-        )
-    endif()
-    add_subdirectory(pybind11)
+    # # Requirement: pybind11
+    # # Add pybind11 via add_subdirectory (since vcpkg's pybind11 fails on linux + python 3.12)
+    # if (NOT IS_DIRECTORY(${CMAKE_CURRENT_LIST_DIR}/pybind11))
+    #     message(STATUS "cloning pybind11")
+    #     execute_process(
+    #         COMMAND git clone https://github.com/pybind/pybind11.git
+    #         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+    #     )
+    # endif()
+    # add_subdirectory(pybind11)
 
     #
     # Build cvnp python module

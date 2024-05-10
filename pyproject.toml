@@ -1,0 +1,38 @@
+[build-system]
+requires = ["scikit_build_core[rich]", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+
+[project]
+name = "cvnp"
+version = "0.0.1"
+description="pybind11 casts and transformers between numpy and OpenCV, with shared memory"
+readme = "README.md"
+authors = [
+  # { name = "My Name", email = "me@email.com" },
+]
+requires-python = ">=3.7"
+
+# [tool.scikit-build]
+# sdist.include = ["src/cbdetect_py.pyi"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+cvnp = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+cmake = ">=3.29.2,<3.30"
+opencv = ">=4.9.0,<4.10"
+scikit-build-core = ">=0.9.3,<0.10"
+pytest = ">=8.2.0,<8.3"
+pybind11 = ">=2.12.0,<2.13"
+cxx-compiler = ">=1.7.0,<1.8"
+numpy = ">=1.26.4,<1.27"
